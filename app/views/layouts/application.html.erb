@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rainy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <script src="https://cdn.quilljs.com/1.1.9/quill.js"></script>
+<link href="https://cdn.quilljs.com/1.1.9/quill.snow.css" rel="stylesheet"></head>
+
+  <body>
+  <div class="login">
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path) %>  
+  </li>
+<% end %>
+  </div>
+    <%= yield %>
+  </body>
+</html>
